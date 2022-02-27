@@ -1,0 +1,31 @@
+package POM_PAGE_OBJECT_MODULE;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import AAuto_Configure.Configurations;
+
+public class SignUp_Pom_3_TC {
+
+	public static void main(String[] args) throws InterruptedException {
+		System.setProperty("webdriver.chrome.driver", Configurations.driverPath);
+		WebDriver driver = new ChromeDriver();
+		driver.get("https://www.facebook.com/signup");
+		driver.manage().window().maximize();
+		
+		SignUp_Pom_3 signup= new SignUp_Pom_3(driver);
+		
+		//TC-01
+		signup.enterUserName("SHUBHAM");
+		signup.enterLastName("SHIRODE");
+		signup.entermobileno("1234567890");
+		signup.enterPassword("SHUBHAM1234567");
+		signup.selectGender();
+		signup.selectDay(27); //selectBy Index
+		signup.selectMonth("Oct");//selectBy Visible Text
+		signup.selectYear("1994");//selectBy Value
+	
+//Simarly we can run multiple test cases TC-02,03,04----and so on
+
+	}
+}
